@@ -53,8 +53,8 @@ runtime! archlinux.vim
 "Configs kunde_x
 set hls
 set number
-set history=300
-set undolevels=300
+set history=1000
+set undolevels=1000
 "Inkrementelle Suche
 set incsearch
 "Navigation remappen
