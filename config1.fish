@@ -1,7 +1,7 @@
 neofetch
 
 function fish_greeting
- echo "Gib her!"
+ echo "Sag schon!"
 end
 
 alias :q exit
