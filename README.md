@@ -1,1 +1,1 @@
-## Custom configurations (aka dotfiles) for some GNU/Linux applications I use 
+### Custom configurations (aka dotfiles) for some GNU/Linux applications I use 
