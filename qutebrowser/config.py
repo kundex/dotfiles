@@ -13,8 +13,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Setting dark mode
 config.set("colors.webpage.darkmode.enabled", True)
 # Bindings for normal mode - Video playback & download shortcuts
-config.bind('M', 'hint links spawn vlc {hint-url}')
-config.bind('Z', 'hint links spawn youtube-dl -f best -o ~/Downloads/videos/%(title)s.f%(format_id)s.%(ext)s {hint-url}')
+config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind('Z', 'hint links spawn st -e youtube-dl {hint-url}')
 # Bindings for navigation
 config.bind('j', 'scroll left')
 config.bind('ö', 'scroll right')
