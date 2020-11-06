@@ -10,9 +10,7 @@ or set -g __fish_added_user_paths
 
 neofetch
 
-function fish_greeting
-  echo "Was willst Du bloß tun?"
-end
+set fish_greeting
 
 # For one-off upgrades of the fish version, see __fish_config_interactive.fish
 if not set -q __fish_initialized
