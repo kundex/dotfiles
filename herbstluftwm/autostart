@@ -34,7 +34,7 @@ hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+
 hc keybind XF86AudioMute spawn amixer set Master toggle 
 
 # Dmenu launcher
-hc keybind $Mod-Shift-Return spawn dmenu_run -fn 'Mononoki Nerd Font:size=6' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'menü_x:'
+hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -p 'menü_x:'
 
 # My dmenu scripts (Alt+Ctrl+Key)
 hc keybind Mod1-Control-e spawn ./.dmenu/dmenu-edit-configs.sh
