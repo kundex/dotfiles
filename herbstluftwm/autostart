@@ -23,6 +23,7 @@ hc keyunbind --all
 # Standards
 Mod=Mod4                            # Use the super key as the main modifier
 myTerm=gnome-terminal               # Set my preferred terminal
+myBrowser=qutebrowser               # Set my preferred browser
 
 #Keybindings
 hc keybind $Mod-Shift-q quit
@@ -38,7 +39,7 @@ hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+
 hc keybind XF86AudioMute spawn amixer set Master toggle 
 
 # Dmenu launcher
-hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -p 'menü_x:'
+hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:'
 
 # My dmenu scripts (Alt+Ctrl+Key)
 hc keybind Mod1-Control-e spawn ./.dmenu/dmenu-edit-configs.sh
@@ -48,7 +49,7 @@ hc keybind Mod1-Control-s spawn ./.dmenu/dmenu-surfraw.sh
 hc keybind Mod1-Control-t spawn ./.dmenu/dmenu-trading.sh
 
 # My applications (Super+Alt+Key)
-hc keybind $Mod-Mod1-q spawn qutebrowser
+hc keybind $Mod-Mod1-q spawn $myBrowser
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin
 
 # focusing clients
@@ -64,7 +65,7 @@ hc keybind $Mod-Shift-Up      shift up
 hc keybind $Mod-Shift-Right   shift right
 
 # splitting frames
-hc keybind $Mod-u             split  bottom  0.5
+hc keybind $Mod-u             split  bottom  0.5 
 hc keybind $Mod-o             split  right   0.5
 hc keybind $Mod-Control-space split explode
 
