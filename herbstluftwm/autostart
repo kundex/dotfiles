@@ -2,11 +2,14 @@
 
 # Source by Derek Taylor (http://www.gitlab.com/dwt1/) - Forked and customized by kunde_x
 
+# Starte Herbstluft
 hc() {
     herbstclient "$@"
 }
 
 hc emit_hook reload
+
+# Testbefehle
 
 # Hintergrund und Wallpapers
 xsetroot -solid '#5A8E3A'
@@ -27,6 +30,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn $myTerm
 hc keybind $Mod-e spawn $myTerm -e vim
+hc keybind XF86Explorer spawn $myTerm -e vifm
 
 # Volume bindings with Sharkoon keyboard ++Aufpassen, dass keine Konkurrenz zu einer xbindkeys-Konfig besteht++
 hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%-
@@ -72,7 +76,7 @@ hc keybind $Mod-Control-Up     resize up +$resizestep
 hc keybind $Mod-Control-Right  resize right +$resizestep
 
 # tags
-tag_names=("dev" "www" "sys" "doc" "vbox" "chat" "mus" "vid" "gfx")
+tag_names=("netz" "coding" "medien" "chat" "system")
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -144,25 +148,12 @@ hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 hc set focus_crosses_monitor_boundaries 1
-hc set swap_monitors_to_get_tag 1
-
-# rules
-hc unrule -F
-#hc rule class=XTerm tag=3 # move all xterms to tag 3
-hc rule class=VirtualBox tag=5 # move all VMs to tag 5
-hc rule title='Oracle VM VirtualBox Manager' tag=5 
-hc rule class=VirtualBox pseudotile=on
-hc rule class=VirtualBox fullscreen=on
-hc rule focus=on # normally focus new clients
-#hc rule focus=off # normally do not focus new clients
-# give focus to most common terminals
-#hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
-hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+# hc set swap_monitors_to_get_tag 1
 
 # unlock, just to be sure
 hc unlock
+
+run polybar --reload mainbar_herbst
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
@@ -170,14 +161,12 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1060+1920+22 
+hc set_monitors 1920x1060+1920+22
 
-# find the panel
- panel=~/.config/herbstluftwm/panel.sh
- [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+find the panel
+  panel=~/.config/herbstluftwm/panel.sh
+  [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
  for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" $monitor &
-done
-
-
+   # start it on each monitor
+   "$panel" $monitor &
+ done
