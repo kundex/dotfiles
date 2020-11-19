@@ -170,8 +170,8 @@ command! reload :write | restart
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
-" Pdf mit xreader öffnen (kundex)
-filextype *.pdf xreader %c %i &, apvlv %c, xpdf %c
+" Pdf mit zathura öffnen (kundex)
+filextype *.pdf zathura
 fileviewer *.pdf
 	\ vifmimg pdfpreview %px %py %pw %ph %c
 	\ %pc
