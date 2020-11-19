@@ -1,0 +1,8 @@
+# kundex' dotfile for zathura pdf viewer
+
+# VIM keybinds übernehmen
+unmap h
+map j scroll left 
+map k scroll up 
+map l scroll down
+map ö scroll right
