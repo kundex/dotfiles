@@ -24,6 +24,7 @@ hc keyunbind --all
 Mod=Mod4                            # Use the super key as the main modifier
 myTerm=gnome-terminal               # Set my preferred terminal
 myBrowser=qutebrowser               # Set my preferred browser
+myPass=passmenu                     # Set my preferred password manager
 
 #Keybindings
 hc keybind $Mod-Shift-q quit
@@ -39,18 +40,12 @@ hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+
 hc keybind XF86AudioMute spawn amixer set Master toggle 
 
 # Dmenu launcher
-hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:'
-
-# My dmenu scripts (Alt+Ctrl+Key)
-hc keybind Mod1-Control-e spawn ./.dmenu/dmenu-edit-configs.sh
-hc keybind Mod1-Control-m spawn ./.dmenu/dmenu-sysmon.sh
-hc keybind Mod1-Control-p spawn passmenu
-hc keybind Mod1-Control-s spawn ./.dmenu/dmenu-surfraw.sh
-hc keybind Mod1-Control-t spawn ./.dmenu/dmenu-trading.sh
+hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'DejaVuSansBold:pixelsize=12'
 
 # My applications (Super+Alt+Key)
 hc keybind $Mod-Mod1-q spawn $myBrowser
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin
+hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'DejaVuSans-Bold:pixelsize=12'
 
 # focusing clients
 hc keybind $Mod-Left             focus left
