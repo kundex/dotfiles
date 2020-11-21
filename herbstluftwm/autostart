@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Source by Derek Taylor (http://www.gitlab.com/dwt1/) - Forked and customized by kunde_x
+# Quelle: Derek Taylor (http://www.gitlab.com/dwt1/)
+# - Angepasst von kunde_x
 
 # Starte Herbstluft
 hc() {
@@ -9,70 +10,56 @@ hc() {
 
 hc emit_hook reload
 
-# Testbefehle
-
-# Hintergrund und Wallpapers
+# Hintergrund, Wallpapers und Schatten
 xsetroot -solid '#5A8E3A'
 picom &			
 nitrogen --restore &
 lxsession &
 
-# remove all existing keybindings
+# Entferne vorhandene Keybindings
 hc keyunbind --all
 
-# Standards
-Mod=Mod4                            # Use the super key as the main modifier
-myTerm=gnome-terminal               # Set my preferred terminal
-myBrowser=qutebrowser               # Set my preferred browser
-myPass=passmenu                     # Set my preferred password manager
+# Standardbefehle & Keybindings
+Mod=Mod4                            		# Set super key as the main modifier
+myTerm=gnome-terminal               		# Set terminal
+myBrowser=qutebrowser               		# Set browser
+myPass=passmenu                     		# Set password manager
+hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
+hc keybind $Mod-Shift-r reload			# Reload herbstluft session
+hc keybind $Mod-Shift-c close			# Close herbstluft window
+hc keybind $Mod-Return spawn $myTerm		# Open terminal 
+hc keybind $Mod-e spawn $myTerm -e vim		# Open vim 
+hc keybind XF86Explorer spawn $myTerm -e vifm	# Open vifm 
+hc keybind $Mod-Mod1-q spawn $myBrowser		# Open browser
+hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
+hc keybind $Mod-Mod1-r spawn $myTerm -e newsboat # Open RSS reader 
+hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'DejaVuSans-Bold:pixelsize=12'		# Open password manager
+hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'DejaVuSansBold:pixelsize=12'	# Open dmenu
+# Aufpassen, dass keine Konkurrenz zu einer xbindkeys-Konfig besteht
+hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%- # Alsa volume down
+hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+ # Alsa volume up
+hc keybind XF86AudioMute spawn amixer set Master toggle        # Alsa mute
 
-#Keybindings
-hc keybind $Mod-Shift-q quit
-hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn $myTerm
-hc keybind $Mod-e spawn $myTerm -e vim
-hc keybind XF86Explorer spawn $myTerm -e vifm
-
-# Volume bindings with Sharkoon keyboard ++Aufpassen, dass keine Konkurrenz zu einer xbindkeys-Konfig besteht++
-hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%-
-hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+
-hc keybind XF86AudioMute spawn amixer set Master toggle 
-
-# Dmenu launcher
-hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'DejaVuSansBold:pixelsize=12'
-
-# My applications (Super+Alt+Key)
-hc keybind $Mod-Mod1-q spawn $myBrowser
-hc keybind $Mod-Mod1-j spawn $myTerm -e joplin
-hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'DejaVuSans-Bold:pixelsize=12'
-
-# focusing clients
-hc keybind $Mod-Left             focus left
-hc keybind $Mod-Down             focus down
-hc keybind $Mod-Up               focus up
-hc keybind $Mod-Right            focus right
-                              
-# moving clients              
-hc keybind $Mod-Shift-Left    shift left
-hc keybind $Mod-Shift-Down    shift down
-hc keybind $Mod-Shift-Up      shift up
-hc keybind $Mod-Shift-Right   shift right
-
-# splitting frames
-hc keybind $Mod-u             split  bottom  0.5 
-hc keybind $Mod-o             split  right   0.5
-hc keybind $Mod-Control-space split explode
-
-# resizing frames
+# Fensterverwaltung mit VIM-Bindings
+hc keybind $Mod-j                     focus left
+hc keybind $Mod-l                     focus down
+hc keybind $Mod-k                     focus up
+hc keybind $Mod-odiaeresis            focus right # odiaeresis = ö
+hc keybind $Mod-Shift-j               shift left
+hc keybind $Mod-Shift-l               shift down
+hc keybind $Mod-Shift-k               shift up
+hc keybind $Mod-Shift-odiaeresis      shift right
+hc keybind $Mod-u                     split  bottom  0.5 
+hc keybind $Mod-o                     split  right   0.5
+hc keybind $Mod-Control-space         split explode
 resizestep=0.01
-hc keybind $Mod-Control-Left   resize left +$resizestep
-hc keybind $Mod-Control-Down   resize down +$resizestep
-hc keybind $Mod-Control-Up     resize up +$resizestep
-hc keybind $Mod-Control-Right  resize right +$resizestep
+hc keybind $Mod-Control-j             resize left +$resizestep
+hc keybind $Mod-Control-l             resize down +$resizestep
+hc keybind $Mod-Control-k             resize up +$resizestep
+hc keybind $Mod-Control-odiaeresis    resize right +$resizestep
 
-# tags
-tag_names=("netz" "coding" "medien" "chat" "system")
+# Tags und Arbeitsbereiche
+tag_names=("netz" "coding" "medien" "chat")
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -84,12 +71,11 @@ for i in ${!tag_names[@]} ; do
         hc keybind "$Mod-Shift-$key" move_index "$i"
     fi
 done
-
-# cycle through tags
+# Arbeitsbereiche wechseln
 hc keybind $Mod-period use_index +1 --skip-visible
 hc keybind $Mod-comma  use_index -1 --skip-visible
 
-# layouting
+# Fensteranordnungen
 hc keybind $Mod-r remove
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
@@ -102,17 +88,17 @@ hc keybind $Mod-space                                                           
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
 
-# mouse
+# Maus 
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
 
-# focus
+# Fokusieren bei mehreren Bildschirmen 
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 
-# theme
+# Layout 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#222222'
@@ -144,12 +130,9 @@ hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 hc set focus_crosses_monitor_boundaries 1
-# hc set swap_monitors_to_get_tag 1
 
-# unlock, just to be sure
+# unlock
 hc unlock
-
-run polybar --reload mainbar_herbst
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 
