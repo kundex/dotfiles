@@ -14,7 +14,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 config.set("colors.webpage.darkmode.enabled", True)
 # Bindings for normal mode - Video playback & download shortcuts
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Z', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind('Z', 'hint links spawn gnome-terminal -e youtube-dl -f "best" -o "~/Downloads/videos/%(title)s.f%(format_id)s.%(ext)s" {hint-url}')
+config.bind('T', 'hint links spawn gnome-terminal -e youtube-dl {hint-url}')
 # Bindings for navigation
 config.bind('j', 'scroll left')
 config.bind('ö', 'scroll right')
@@ -47,7 +48,7 @@ c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.enabled = True
 c.content.notifications = False
-c.content.pdfjs = True
+c.content.pdfjs = False
 c.content.proxy = 'system'
 c.content.webgl = True
 c.tabs.position = 'left'

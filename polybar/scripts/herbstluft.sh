@@ -1,7 +1,7 @@
 #!/bin/sh
 
 hash herbstclient xrandr
-
+format-foreground = 
 print_tags() {
 	for tag in $(herbstclient tag_status "$1"); do
 		name=${tag#?}
@@ -11,13 +11,13 @@ print_tags() {
 			printf '%%{R} %s %%{R}' "$name"
 			;;
 		'+')
-			printf '%%{F#cccccc}%%{R} %s %%{R}%%{F-}' "$name"
+			printf '%%{F#fff7bc}%%{R} %s %%{R}%%{F-}' "$name"
 			;;
 		'!')
 			printf '%%{R} %s! %%{R}' "$name"
 			;;
 		'.')
-			printf '%%{F#cccccc} %s %%{F-}' "$name"
+			printf '%%{F#fff7bc} %s %%{F-}' "$name"
 			;;
 		*)
 			printf ' %s ' "$name"
