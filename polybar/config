@@ -14,9 +14,9 @@ offset-y = 3
 radius = 16.0
 fixed-center = true
 background = ${colors.background}
-foreground = #ff5555
-padding = 4
-module-margin = 2
+foreground = ${colors.foreground}
+padding = 3
+module-margin = 1
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
@@ -25,9 +25,9 @@ font-3 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
 font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
 font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
 
-modules-left = xwindow 
+modules-left = networkspeeddown networkspeedup xwindow 
 modules-center = herbstluftwm
-modules-right = updates pulseaudio cpu memory temperature date poweroff
+modules-right = updates pulseaudio cpu memory bluetooth temperature date poweroff
 
 separator = »
 locale = de_DE.UTF-8
@@ -35,15 +35,33 @@ locale = de_DE.UTF-8
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+################################## Module #############################
+
+[module/networkspeeddown]
+type = internal/network
+interface = enp109s0f1
+label-connected = "%downspeed:7%"
+format-connected-prefix = "  "
+format-connected-prefix-foreground = #0a81f5
+
+[module/networkspeedup]
+type = internal/network
+interface = enp109s0f1
+label-connected = "%upspeed:7%"
+label-connected-foreground = #FE4365
+format-connected-prefix = " "
+format-connected-prefix-foreground = #0a81f5
+
 [module/xwindow]
 type = internal/xwindow
 format-foreground = ${colors.foreground-alt}
-label = "» %title:22:...%"
+label = "%title:22:...%"
 
-;[module/dmenu]
-;type = custom/script
-;exec = dmenu_run -bw 2 -l 20 -g 6 -p 'menü_x'
-;interval = 1000
+[module/herbstluftwm]
+type = custom/script
+exec = ~/.config/polybar/scripts/herbstluft.sh
+;Für kontinuierlichen Output
+tail = true 
 
 [module/updates]
 type = custom/script
@@ -55,44 +73,13 @@ format-background = ${colors.background}
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-label = %percentage:2%%
-label-foreground = ${colors.foreground-alt}
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-label = %percentage_used%%
-label-foreground = ${colors.foreground-alt}
-
-[module/date]
-type = internal/date
-interval = 1    
-date = " %d.%m.%Y"
-time = %H:%M:%S
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-
-label = %date% %time%
-label-foreground = ${colors.foreground-alt}
-
 [module/pulseaudio]
 type = internal/pulseaudio
-
 format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.foreground}
-
 format-volume = <label-volume> <bar-volume>
-label-volume = "Krach: %percentage%%"
+label-volume = " %percentage%%"
 label-volume-foreground = ${colors.foreground-alt}
-
 label-muted =   stumm
 label-muted-foreground = #ff5555
 
@@ -114,18 +101,37 @@ bar-volume-fill = 
 bar-volume-empty = 
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format-prefix = " "
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-
-label = %temperature-c%
+label = %percentage:2%%
 label-foreground = ${colors.foreground-alt}
-label-warn = %temperature-c%
-label-warn-foreground = #FE4365
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+label = %percentage_used%%
+label-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 1    
+date = " %d.%m.%Y"
+time = %H:%M
+label = "%date% | %time%"
+label-foreground = ${colors.foreground-alt}
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth.sh
+format-prefix = " "
+label-foreground = ${colors.foreground-alt}
+tail = true
+click-left = ~/polybar-scripts/bluetooth.sh --toggle &
 
 [module/poweroff]
 type = custom/menu
@@ -143,24 +149,9 @@ menu-0-0-exec = menu-open-1
 menu-0-1 = "  aus-machn "
 menu-0-1-foreground = #ff5555
 menu-0-1-exec = menu-open-2
-menu-1-0 = "                                          ok "
+menu-1-0 = "  ok "
 menu-1-0-foreground = #fec44f
 menu-1-0-exec = systemctl reboot
-menu-2-0 = "                                         ok "
+menu-2-0 = "  ok "
 menu-2-0-foreground = #ff5555
 menu-2-0-exec = systemctl poweroff
-
-[module/herbstluftwm]
-type = custom/script
-
-exec = ~/.config/polybar/scripts/herbstluft.sh
-tail = true
-
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
-
