@@ -9,4 +9,6 @@
 - PDF viewer (zathura)
 - ...we'll see what comes next :-) 
 
+### And that it looks like:
+
 ![my_desktop](desktop.png?raw=true "Title")
