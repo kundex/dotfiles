@@ -1,5 +1,5 @@
-### Custom configurations (aka dotfiles) for some GNU/Linux applications I use 
-## Containing my ...
+# Custom configurations (aka dotfiles) for some GNU/Linux applications I use 
+### Containing my ...
 - tiling window manager (herbstluft)
 - statusbar (polybar)
 - shell (fish)
