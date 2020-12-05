@@ -9,6 +9,6 @@
 - PDF viewer (zathura)
 - ...we'll see what comes next :-) 
 
-### And that it looks like:
+### So my tiling window manager coding workspace with polybar looks like this:
 
 ![my_desktop](desktop.png?raw=true "Title")
