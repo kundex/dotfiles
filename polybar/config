@@ -27,7 +27,7 @@ font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
 
 modules-left = networkspeeddown networkspeedup xwindow 
 modules-center = herbstluftwm
-modules-right = updates pulseaudio cpu memory bluetooth temperature date poweroff
+modules-right = updates_arch updates_aur pulseaudio cpu memory bluetooth temperature date poweroff
 
 separator = »
 locale = de_DE.UTF-8
@@ -63,13 +63,21 @@ exec = ~/.config/polybar/scripts/herbstluft.sh
 ;Für kontinuierlichen Output
 tail = true 
 
-[module/updates]
+[module/updates_arch]
 type = custom/script
-exec = ~/.config/polybar/scripts/check-all-updates.sh
+exec = ~/.config/polybar/scripts/check-updates-arch.sh
 interval = 1000
-label = Updates: %output%
+label = arch: %output%
 format-foreground = ${colors.foreground-alt}
-format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+
+[module/updates_aur]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-updates-aur.sh
+interval = 1000
+label = aur: %output%
+format-foreground = ${colors.foreground-alt}
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
 

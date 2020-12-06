@@ -13,7 +13,6 @@ hc emit_hook reload
 # Hintergrund, Wallpapers und Schatten
 xsetroot -solid '#5A8E3A'
 picom &			
-nitrogen --restore &
 lxsession &
 
 # Entferne vorhandene Keybindings
@@ -22,7 +21,8 @@ hc keyunbind --all
 # Standardbefehle & Keybindings
 Mod=Mod4                            		# Set super key as the main modifier
 myTerm=gnome-terminal               		# Set terminal
-myBrowser=qutebrowser               		# Set browser
+myBrowser_1=qutebrowser               		# Set browser_1
+myBrowser_2=brave               		# Set browser_2
 myPass=passmenu                     		# Set password manager
 hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
@@ -30,7 +30,8 @@ hc keybind $Mod-Shift-c close			# Close herbstluft window
 hc keybind $Mod-Return spawn $myTerm		# Open terminal 
 hc keybind $Mod-e spawn $myTerm -e vim		# Open vim 
 hc keybind XF86Explorer spawn $myTerm -e vifm	# Open vifm 
-hc keybind $Mod-Mod1-q spawn $myBrowser		# Open browser
+hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
+hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
 hc keybind $Mod-Mod1-r spawn $myTerm -e newsboat # Open RSS reader 
 hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'DejaVuSans-Bold:pixelsize=12'		# Open password manager
@@ -87,7 +88,6 @@ hc keybind $Mod-space                                                           
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
-
 # Maus 
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
@@ -140,7 +140,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1060+1920+22
+hc set_monitors 1920x1050+1920+30
 
 find the panel
   panel=~/.config/herbstluftwm/panel.sh
