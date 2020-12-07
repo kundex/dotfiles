@@ -1,3 +1,4 @@
+config.load_autoconfig(False)
 config.set('content.cookies.accept', 'no-3rdparty', 'chrome-devtools://*')
 config.set('content.cookies.accept', 'no-3rdparty', 'devtools://*')
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
@@ -12,6 +13,9 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Eigene Einstellungen (kundex)--------------------------------------
 # Setting dark mode
 config.set("colors.webpage.darkmode.enabled", True)
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.policy.images = 'never'
+c.colors.webpage.darkmode.policy.page = 'smart'
 # Bindings for normal mode - Video playback & download shortcuts
 config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('Z', "hint links spawn youtube-dl -f 'best' -o '~/Downloads/videos/%(title)s.f%(format_id)s.%(ext)s' '{hint-url}'")
@@ -28,11 +32,16 @@ config.bind('L', 'tab-next')
 c.auto_save.session = True
 # Bestätigung bei Beenden nur, wenn Download läuft
 c.confirm_quit = ["downloads"]
-# Verschiedenes
+# Verschiedenes aus Doku unter: http://www.ii.com/qutebrowser-configpy/
 c.content.proxy = 'none'
 c.content.ssl_strict = True
-c.downloads.location.prompt = False
+c.downloads.location.prompt = True
 c.downloads.location.directory = '/home/kunde_x/Downloads'
+c.downloads.location.remember = False
+c.downloads.location.suggestion = 'both'
+c.downloads.position = 'bottom'
+c.downloads.remove_finished = 5000
+c.messages.timeout = 5000
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_load = True
 c.tabs.last_close = 'close'
@@ -47,13 +56,13 @@ c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.enabled = True
 c.content.notifications = False
-c.content.pdfjs = False
+c.content.pdfjs = True
 c.content.proxy = 'system'
 c.content.webgl = True
 c.tabs.position = 'left'
-c.tabs.width = '10%'
+c.tabs.width = '20%'
 c.tabs.show = 'switching'
-c.tabs.show_switching_delay = 2000
+c.tabs.show_switching_delay = 1000
 c.colors.tabs.bar.bg = '#BB2F343F'
 c.colors.tabs.selected.even.bg = '#83AF9B'
 c.colors.tabs.selected.even.fg = '#FFF7BC'
@@ -63,3 +72,11 @@ c.colors.tabs.even.bg = '#2F343F'
 c.colors.tabs.even.fg = '#83AF9B'
 c.colors.tabs.odd.bg = '#2F343F'
 c.colors.tabs.odd.fg = '#83AF9B'
+c.fonts.default_size = '8pt'
+c.completion.scrollbar.padding = 5 
+c.content.cookies.accept = 'no-3rdparty'
+c.content.cookies.store = False
+c.content.host_blocking.enabled = True
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.colors.statusbar.progress.bg = '#0a81f5'
