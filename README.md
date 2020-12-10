@@ -11,4 +11,5 @@
 
 ### So my tiling window manager coding workspace with polybar looks like this:
 
-![my_desktop](desktop.png?raw=true "Title")
+![my_desktop](desktop.png?raw=true "vim and vifm")
+![my_desktop](desktop2.jpg?raw=true "fish shell, mpv, qutebrowser and newsboat")
