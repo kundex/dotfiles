@@ -24,6 +24,7 @@ myTerm=gnome-terminal               		# Set terminal
 myBrowser_1=qutebrowser               		# Set browser_1
 myBrowser_2=brave               		# Set browser_2
 myPass=passmenu                     		# Set password manager
+myMail=thunderbird                     		# Set mail manager
 hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
 hc keybind $Mod-Shift-c close			# Close herbstluft window
@@ -32,6 +33,7 @@ hc keybind $Mod-e spawn $myTerm -e vim		# Open vim
 hc keybind XF86Explorer spawn $myTerm -e vifm	# Open vifm 
 hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
 hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
+hc keybind $Mod-Mod1-t spawn $myMail		# Open Mailer
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
 hc keybind $Mod-Mod1-r spawn $myTerm -e newsboat # Open RSS reader 
 
