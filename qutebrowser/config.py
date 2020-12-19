@@ -82,3 +82,6 @@ c.content.host_blocking.enabled = True
 c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 c.colors.statusbar.progress.bg = '#0a81f5'
+c.completion.cmd_history_max_items = 0
+c.completion.web_history.max_items = 0 
+c.content.private_browsing = True
