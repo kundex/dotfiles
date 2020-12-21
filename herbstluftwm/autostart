@@ -12,6 +12,7 @@ hc emit_hook reload
 
 # Hintergrund, Wallpapers und Schatten
 xsetroot -solid '#5A8E3A'
+nitrogen --restore &
 picom &			
 lxsession &
 
