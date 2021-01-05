@@ -66,6 +66,11 @@ noremap j h
 inoremap jk <ESC>
 "Leader-Taste ändern
 let mapleader = " "
+"Wechsel zwischen Buffern ändern
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 "Statuszeile immer an
 set laststatus=2
 "Relative Zeilennummern

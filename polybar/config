@@ -99,14 +99,14 @@ bar-volume-foreground-3 = #fec44f
 bar-volume-foreground-4 = #fec44f
 bar-volume-foreground-5 = ${colors.foreground}
 bar-volume-foreground-6 = ${colors.foreground}
-bar-volume-foreground-7 = ${colors.foreground}
+bar-volume-foreground-7 = #0a81f5
 bar-volume-foreground-8 = #0a81f5
 bar-volume-foreground-9 = #0a81f5
 ;bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-foreground = ${colors.foreground-alt}
-bar-volume-fill = 
-bar-volume-empty = 
+bar-volume-indicator = 
+bar-volume-indicator-foreground = #FFFFFF
+bar-volume-fill = 
+bar-volume-empty = 
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
