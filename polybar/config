@@ -18,12 +18,8 @@ foreground = ${colors.foreground}
 padding = 3
 module-margin = 1
 
-font-0 = fixed:pixelsize=8;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Siji:style=Regular
-font-3 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
-font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
-font-5 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular
+font-0 = Font Awesome 5 Free:style=Solid:pixelsize=12;1
+font-1 = SauceCodePro Nerd Font:style=Regular:pixelsize=9;1
 
 modules-left = networkspeeddown networkspeedup xwindow 
 modules-center = herbstluftwm
@@ -41,7 +37,7 @@ cursor-scroll = ns-resize
 type = internal/network
 interface = enp109s0f1
 label-connected = "%downspeed:7%"
-format-connected-prefix = "  "
+format-connected-prefix = " "
 format-connected-prefix-foreground = #0a81f5
 
 [module/networkspeedup]
@@ -60,25 +56,24 @@ label = "%title:22:...%"
 [module/herbstluftwm]
 type = custom/script
 exec = ~/.config/polybar/scripts/herbstluft.sh
-;Für kontinuierlichen Output
 tail = true 
 
 [module/updates_arch]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-updates-arch.sh
 interval = 1000
-label = arch: %output%
+label = arch:%output%
 format-foreground = ${colors.foreground-alt}
-format-prefix = "  "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 
 [module/updates_aur]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-updates-aur.sh
 interval = 1000
-label = aur: %output%
+label = aur:%output%
 format-foreground = ${colors.foreground-alt}
-format-prefix = "  "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 
 [module/pulseaudio]
@@ -86,7 +81,7 @@ type = internal/pulseaudio
 format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.foreground}
 format-volume = <label-volume> <bar-volume>
-label-volume = " %percentage%%"
+label-volume = "%percentage%%"
 label-volume-foreground = ${colors.foreground-alt}
 label-muted =   stumm
 label-muted-foreground = #ff5555
@@ -111,7 +106,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 0.5 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 label = %percentage:2%%
@@ -130,13 +125,13 @@ type = internal/date
 interval = 1    
 date = " %d.%m.%Y"
 time = %H:%M
-label = "%date% | %time%"
+label = "%date%  %time%"
 label-foreground = ${colors.foreground-alt}
 
 [module/bluetooth]
 type = custom/script
 exec = ~/.config/polybar/scripts/bluetooth.sh
-format-prefix = " "
+format-prefix = ""
 label-foreground = ${colors.foreground-alt}
 tail = true
 click-left = ~/polybar-scripts/bluetooth.sh --toggle &
