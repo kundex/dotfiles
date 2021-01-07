@@ -39,8 +39,8 @@ hc keybind $Mod-Mod1-j spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e jopli
 hc keybind $Mod-Mod1-r spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e newsboat # Open RSS reader 
 hc keybind $Mod-Mod1-m spawn $myTerm -e 'import -window root -crop 1920x1050+1920+30 screenshot.png' # Take screenshot and crop it to external screen
 
-hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'DejaVuSans-Bold:pixelsize=12'		# Open password manager
-hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'DejaVuSansBold:pixelsize=12'	# Open dmenu-Starter
+hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'SauceCodePro Nerd Font:size=8'		# Open password manager
+hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'SauceCodePro Nerd Font:size=8'	# Open dmenu-Starter
 hc keybind $Mod-Mod1-f spawn ~/.config/herbstluftwm/schriftarten.sh	             # Open Font search & display
 hc keybind $Mod-Mod1-l spawn ~/.config/herbstluftwm/bookmarks.sh	             # Open bookmarks in qutebrowser
 

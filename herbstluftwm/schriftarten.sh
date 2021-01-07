@@ -11,6 +11,6 @@
 ## dmenu starten mit individuellen Struktur- und Farbschema, Schriftart und Überschrift
 ## Auswahl in Variable "auswahl" zu display übergeben (Anzeige in ImageMagic)
 
-auswahl=$(fc-list | awk '{print $1}' | sed 's/\/usr\/share\/fonts\///g' | sed 's/://g' | dmenu -bw 2 -l 40 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'schriftarten:' -fn 'DejaVuSansBold:pixelsize=12')
+auswahl=$(fc-list | awk '{print $1}' | sed 's/\/usr\/share\/fonts\///g' | sed 's/://g' | dmenu -bw 2 -l 40 -g 3 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'schriftarten:' -fn 'SauceCodePro Nerd Font:size=8')
 
 display "/usr/share/fonts/$auswahl"
