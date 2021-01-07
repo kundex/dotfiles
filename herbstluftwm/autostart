@@ -21,7 +21,7 @@ hc keyunbind --all
 
 # Standardbefehle & Keybindings
 Mod=Mod4                            		# Set super key as the main modifier
-myTerm=gnome-terminal               		# Set terminal
+myTerm=st		               		# Set terminal
 myBrowser_1=qutebrowser               		# Set browser_1
 myBrowser_2=brave               		# Set browser_2
 myPass=passmenu                     		# Set password manager
@@ -29,7 +29,7 @@ myMail=thunderbird                     		# Set mail manager
 hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
 hc keybind $Mod-Shift-c close			# Close herbstluft window
-hc keybind $Mod-Return spawn $myTerm		# Open terminal 
+hc keybind $Mod-Return spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' # Open terminal 
 hc keybind $Mod-e spawn $myTerm -e vim		# Open vim 
 hc keybind XF86Explorer spawn $myTerm -e vifm   # Open vim
 hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
@@ -148,7 +148,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1920x1050+1920+30 1920x1050+0+30
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1050+1920+30
+hc set_monitors 1920x1050+0+30
 
 find the panel
   panel=~/.config/herbstluftwm/panel.sh
