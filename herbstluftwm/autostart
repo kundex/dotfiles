@@ -11,8 +11,7 @@ hc() {
 hc emit_hook reload
 
 # Hintergrund, Wallpapers und Schatten
-xsetroot -solid '#5A8E3A'
-nitrogen --restore &
+feh --no-fehbg --bg-fill --randomize /usr/share/backgrounds/kunde_x
 picom &			
 lxsession &
 
@@ -30,11 +29,11 @@ hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
 hc keybind $Mod-Shift-c close			# Close herbstluft window
 hc keybind $Mod-Return spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' # Open terminal 
-hc keybind $Mod-e spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e vim		# Open vim 
 hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
 hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
 hc keybind $Mod-Mod1-t spawn $myMail		# Open Mailer
 hc keybind XF86Explorer spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e vifm   # Open vifm
+hc keybind $Mod-e spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e vifm	   # Open vifm alternative 
 hc keybind $Mod-Mod1-j spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e joplin	# Open joplin
 hc keybind $Mod-Mod1-r spawn $myTerm -f 'SauceCodePro Nerd Font:size=8' -e newsboat # Open RSS reader 
 hc keybind $Mod-Mod1-m spawn $myTerm -e 'import -window root -crop 1920x1050+1920+30 screenshot.png' # Take screenshot and crop it to external screen
