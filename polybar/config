@@ -18,8 +18,8 @@ foreground = ${colors.foreground}
 padding = 3
 module-margin = 1
 
-font-0 = Font Awesome 5 Free:style=Solid:pixelsize=12;1
-font-1 = SauceCodePro Nerd Font:style=Regular:pixelsize=9;1
+font-0 = Font Awesome 5 Free:style=Solid:pixelsize=10;1
+font-1 = SauceCodePro Nerd Font:style=Regular:size=8;1
 
 modules-left = networkspeeddown networkspeedup xwindow 
 modules-center = herbstluftwm
@@ -142,19 +142,19 @@ format-foreground = #0a81f5
 expand-right = false
 format-spacing = 1
 label-open = "  "
-label-close = "  neenee "
+label-close = "  "
 label-close-foreground = ${colors.foreground}
-label-separator = 
+label-separator = 
 label-separator-foreground = ${colors.foreground-alt}
-menu-0-0 = "  re-bootn "
+menu-0-0 = "  "
 menu-0-0-foreground = #fec44f
 menu-0-0-exec = menu-open-1
-menu-0-1 = "  aus-machn "
+menu-0-1 = "   "
 menu-0-1-foreground = #ff5555
 menu-0-1-exec = menu-open-2
-menu-1-0 = "  ok "
+menu-1-0 = "  "
 menu-1-0-foreground = #fec44f
 menu-1-0-exec = systemctl reboot
-menu-2-0 = "  ok "
+menu-2-0 = "  "
 menu-2-0-foreground = #ff5555
 menu-2-0-exec = systemctl poweroff
