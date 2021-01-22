@@ -163,13 +163,13 @@ leave_broot = false
 key = "ctrl-k"
 execution = ":line_up"
 #
-# [[verbs]]
-# key = "ctrl-ö"
-# execution = ":page_down"
+[[verbs]]
+key = "ctrl-odiaeresis"
+execution = ":focus"
 #
-# [[verbs]]
-# key = "ctrl-j"
-# execution = ":page_up"
+[[verbs]]
+key = "ctrl-j"
+execution = ":parent"
 
 # [[verbs]]
 # key = "home"

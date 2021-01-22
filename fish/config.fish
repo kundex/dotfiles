@@ -10,7 +10,7 @@ or set -g __fish_added_user_paths
 
 neofetch
 
-set fish_greeting
+set fish_greeting #Supress fish greeting
 
 # For one-off upgrades of the fish version, see __fish_config_interactive.fish
 if not set -q __fish_initialized
