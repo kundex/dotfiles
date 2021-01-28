@@ -4,7 +4,13 @@
 
 source /usr/share/mutt-wizard/mutt-wizard.muttrc
 source /home/kunde_x/.config/mutt/accounts/1-lars.hofmann@posteo.de.muttrc 
-source /home/kunde_x/.config/mutt/aliases # address file
+
+# set address file
+set alias_file= /home/kunde_x/.config/mutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/kunde_x/.config/mutt/accounts/1-lars.hofmann@posteo.de.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to lars.hofmann@posteo.de"
 
 set mailcap_path = /usr/share/mutt-wizard/mailcap:$mailcap_path
