@@ -163,9 +163,9 @@ leave_broot = false
 key = "ctrl-k"
 execution = ":line_up"
 #
-[[verbs]]
-key = "ctrl-odiaeresis"
-execution = ":focus"
+#[[verbs]]
+#key = "ctrl-ö"
+#execution = ":focus"
 #
 [[verbs]]
 key = "ctrl-j"
