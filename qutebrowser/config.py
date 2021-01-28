@@ -84,5 +84,5 @@ c.completion.cmd_history_max_items = 0
 c.completion.web_history.max_items = 0 
 c.content.private_browsing = True
 c.bindings.commands['insert'] = {
-    '<j><k>': 'leave-mode'
+    '<j><k>': 'mode-leave'
 }
