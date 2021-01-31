@@ -32,6 +32,7 @@ hc keybind $Mod-Return spawn $myTerm  		# Open terminal
 hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
 hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
 hc keybind $Mod-Mod1-t spawn $myMail		# Open Mailer
+hc keybind $Mod-Mod1-n spawn $myTerm -e neomutt	# Open Mailer_2
 hc keybind XF86Explorer spawn $myTerm -e vifm   # Open vifm
 hc keybind $Mod-e spawn $myTerm -e vifm	   	# Open vifm alternative 
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
@@ -147,7 +148,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1920x1050+1920+30 1920x1050+0+30
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1050+0+30
+hc set_monitors 1920x1050+1920+30
 
 find the panel
   panel=~/.config/herbstluftwm/panel.sh
