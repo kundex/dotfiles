@@ -58,6 +58,8 @@ set history=1000
 set undolevels=1000
 "Inkrementelle Suche
 set incsearch
+"search will be case-sensitive only if it contains an uppercase letter
+set smartcase
 "Navigation remappen
 noremap ö l
 noremap l j
@@ -80,4 +82,6 @@ colo murphy
 syntax on
 "Farbschema Airline
 let g:airline_theme='deus'
+"Escape search highlighting
+map <esc> :noh<cr>
 set clipboard=unnamedplus
