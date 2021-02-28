@@ -15,7 +15,7 @@ macro index,pager i1 '<sync-mailbox><enter-command>source /home/kunde_x/.config/
 
 set mailcap_path = /usr/share/mutt-wizard/mailcap:$mailcap_path
 set mime_type_query_command = "file --mime-type -b %s"
-set date_format="%y/%m/%d %I:%M%p"
+set date_format="%d/%m/%y %I:%M%p"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set sort = 'reverse-date'
 set smtp_authenticators = 'gssapi:login'
@@ -71,14 +71,12 @@ bind editor <Tab> complete-query
 
 # Sidebar mappings
 set sidebar_visible = yes
-set sidebar_width = 30
+set sidebar_width = 25
 set sidebar_short_path = yes
 set sidebar_next_new_wrap = yes
 set mail_check_stats
 set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
 bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
+bind index,pager \Cl sidebar-next
 bind index,pager \Co sidebar-open
-bind index,pager \Cp sidebar-prev-new
-bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
