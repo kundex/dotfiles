@@ -16,12 +16,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ap/vim-css-color'
+Plugin 'vimwiki/vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -60,19 +61,10 @@ set undolevels=1000
 set incsearch
 "search will be case-sensitive only if it contains an uppercase letter
 set smartcase
-"Navigation remappen
-noremap ö l
-noremap l j
-noremap j h
 "ESC für Verlassen des Einfügen-Modus ändern
 inoremap jk <ESC>
 "Leader-Taste ändern
 let mapleader = " "
-"Wechsel zwischen Buffern ändern
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 "Statuszeile immer an
 set laststatus=2
 "Relative Zeilennummern
