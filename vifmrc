@@ -433,11 +433,6 @@ elseif executable('xsel')
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
 endif
 
-" Mappings for navigation (kunde_x)
-noremap ö l
-noremap l j
-noremap j h
-
 " Alle Suchergebnisse markieren (kunde_x)
 set hls
 
