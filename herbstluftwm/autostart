@@ -52,22 +52,22 @@ hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+ # Alsa volume up
 hc keybind XF86AudioMute spawn amixer set Master toggle        # Alsa mute
 
 # Fensterverwaltung mit VIM-Bindings
-hc keybind $Mod-j                     focus left
-hc keybind $Mod-l                     focus down
+hc keybind $Mod-h                     focus left
+hc keybind $Mod-j                     focus down
 hc keybind $Mod-k                     focus up
-hc keybind $Mod-odiaeresis            focus right # odiaeresis = ö
-hc keybind $Mod-Shift-j               shift left
-hc keybind $Mod-Shift-l               shift down
+hc keybind $Mod-l    		      focus right
+hc keybind $Mod-Shift-h               shift left
+hc keybind $Mod-Shift-j               shift down
 hc keybind $Mod-Shift-k               shift up
-hc keybind $Mod-Shift-odiaeresis      shift right
+hc keybind $Mod-Shift-l		      shift right
 hc keybind $Mod-u                     split  bottom  0.5 
 hc keybind $Mod-o                     split  right   0.5
 hc keybind $Mod-Control-space         split explode
 resizestep=0.01
-hc keybind $Mod-Control-j             resize left +$resizestep
-hc keybind $Mod-Control-l             resize down +$resizestep
+hc keybind $Mod-Control-h             resize left +$resizestep
+hc keybind $Mod-Control-j             resize down +$resizestep
 hc keybind $Mod-Control-k             resize up +$resizestep
-hc keybind $Mod-Control-odiaeresis    resize right +$resizestep
+hc keybind $Mod-Control-l	      resize right +$resizestep
 
 # Tags und Arbeitsbereiche
 tag_names=("netz" "coding" "medien" "chat")

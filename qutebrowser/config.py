@@ -20,14 +20,14 @@ c.colors.webpage.darkmode.policy.page = 'smart'
 config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('Z', "hint links spawn youtube-dl -f 'best' -o '~/Downloads/videos/%(title)s.f%(format_id)s.%(ext)s' '{hint-url}'")
 # Bindings for navigation
-config.bind('j', 'scroll left')
-config.bind('ö', 'scroll right')
+config.bind('h', 'scroll left')
+config.bind('l', 'scroll right')
 config.bind('k', 'scroll up')
-config.bind('l', 'scroll down')
-config.bind('J', 'back')
-config.bind('Ö', 'forward')
+config.bind('j', 'scroll down')
+config.bind('H', 'back')
+config.bind('L', 'forward')
 config.bind('K', 'tab-prev')
-config.bind('L', 'tab-next')
+config.bind('J', 'tab-next')
 # Save session
 c.auto_save.session = True
 # Bestätigung bei Beenden nur, wenn Download läuft
