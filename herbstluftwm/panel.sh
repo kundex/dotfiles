@@ -11,8 +11,11 @@ if type "xrandr"; then
     MONITOR=$m polybar --reload oben &
   done
 else
-  polybar --reload oben &
+  polybar --reload oben & 
 fi
+
+# Launch bar(s)
+  polybar time -q &
 
 echo "Bars launched..."
 

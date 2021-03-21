@@ -26,12 +26,8 @@ print_tags() {
 	printf '\n'
 }
 
-geom_regex='[[:digit:]]\+x[[:digit:]]\++[[:digit:]]\++[[:digit:]]\+'
-geom=$(xrandr --query | grep "^$MONITOR" | grep -o "$geom_regex")
 monitor=$(herbstclient list_monitors | grep "$geom" | cut -d: -f1)
-
 print_tags "$monitor"
-
 IFS="$(printf '\t')" herbstclient --idle | while read -r hook args; do
 	case "$hook" in
 	tag*)

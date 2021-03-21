@@ -1,55 +1,59 @@
 #!/usr/bin/env bash
 
-# Quelle: Derek Taylor (http://www.gitlab.com/dwt1/)
-# - Angepasst von kunde_x
+# Source: Derek Taylor (http://www.gitlab.com/dwt1/)
+# Modified by kunde_x
 
-# Starte Herbstluft
+# Start herbstluft
 hc() {
     herbstclient "$@"
 }
 
 hc emit_hook reload
 
-# Wallpapers und Schatten
+# Wallpapers and shadows
 feh --no-fehbg --bg-fill --randomize /usr/share/backgrounds/kunde_x
 picom &			
 lxsession &
 
-# Entferne vorhandene Keybindings
+# Remove existing keybindings
 hc keyunbind --all
 
-# Standardbefehle & Keybindings
+# Standard settings
 Mod=Mod4                            		# Set super key as the main modifier
 myTerm=st		               		# Set terminal
-myBrowser_1=qutebrowser               		# Set browser_1
-myBrowser_2=brave               		# Set browser_2
-myPass=passmenu                     		# Set password manager
-myMail=thunderbird                     		# Set mail manager
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
 hc keybind $Mod-Shift-c close_and_remove	# Close herbstluft window
+
+# Application keybindings
 hc keybind $Mod-Return spawn $myTerm  		# Open terminal 
-hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
-hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
-hc keybind $Mod-Mod1-t spawn $myMail		# Open Mailer
-hc keybind $Mod-Mod1-n spawn $myTerm -e neomutt	# Open Mailer_2
+hc keybind $Mod-Mod1-q spawn qutebrowser	# Open qutebrowser
+hc keybind $Mod-Mod1-b spawn brave		# Open brave
+hc keybind $Mod-Mod1-t spawn thunderbird	# Open thunderbird
+hc keybind $Mod-Mod1-n spawn $myTerm -e neomutt	# Open neomutt
 hc keybind XF86Explorer spawn $myTerm -e vifm   # Open vifm
-hc keybind $Mod-e spawn $myTerm -e vifm	   	# Open vifm alternative 
+hc keybind $Mod-e spawn $myTerm -e vifm	   	# Open vifm 
 hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
 hc keybind $Mod-Mod1-r spawn $myTerm -e newsboat # Open RSS reader 
-hc keybind $Mod-Mod1-m spawn $myTerm -e 'import -window root -crop 1920x1050+1920+30 screenshot.png' # Take screenshot and crop it to external screen
+hc keybind $Mod-Mod1-m spawn $myTerm -e 'import -window root -crop 1920x1050+0+30 screenshot.png' # Take screenshot and crop it to external screen
 
-hc keybind $Mod-Mod1-p spawn $myPass -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'SauceCodePro Nerd Font:size=8'		# Open password manager
-hc keybind $Mod-Shift-Return spawn dmenu_run -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'SauceCodePro Nerd Font:size=8'	# Open dmenu-Starter
-hc keybind $Mod-Mod1-f spawn ~/.config/herbstluftwm/schriftarten.sh	             # Open Font search & display
-hc keybind $Mod-Mod1-l spawn ~/.config/herbstluftwm/bookmarks.sh	             # Open bookmarks in qutebrowser
-hc keybind $Mod-Shift-q spawn ~/.config/herbstluftwm/logout.sh		             # Open logout options
+# Dmenu keybindings
+## Open password manager (pass)
+hc keybind $Mod-Mod1-p spawn passmenu -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'SauceCodePro Nerd Font:size=8'	
+## Open application starter
+hc keybind $Mod-Shift-Return spawn dmenu_run -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'SauceCodePro Nerd Font:size=8'	
+## Open font server
+hc keybind $Mod-Mod1-f spawn ~/.config/herbstluftwm/schriftarten.sh
+## Open bookmarks
+hc keybind $Mod-Mod1-l spawn ~/.config/herbstluftwm/bookmarks.sh
+## Open exit options
+hc keybind $Mod-Shift-q spawn ~/.config/herbstluftwm/logout.sh
 
-# Aufpassen, dass keine Konkurrenz zu einer xbindkeys-Konfig besteht
-hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%- # Alsa volume down
-hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+ # Alsa volume up
-hc keybind XF86AudioMute spawn amixer set Master toggle        # Alsa mute
+# Volume keybindings
+hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%-
+hc keybind XF86AudioRaiseVolume spawn amixer -q set Master 5%+
+hc keybind XF86AudioMute spawn amixer set Master toggle      
 
-# Fensterverwaltung mit VIM-Bindings
+# Window management keybindings
 hc keybind $Mod-h                     focus left
 hc keybind $Mod-j                     focus down
 hc keybind $Mod-k                     focus up
@@ -67,8 +71,8 @@ hc keybind $Mod-Control-j             resize down +$resizestep
 hc keybind $Mod-Control-k             resize up +$resizestep
 hc keybind $Mod-Control-l	      resize right +$resizestep
 
-# Tags und Arbeitsbereiche
-tag_names=("netz" "coding" "medien" "chat")
+# Tags and work spaces
+tag_names=("-1-" "-2-" "-3-" "-4-" "-5-" "-6-")
 tag_keys=( {1..9} 0 )
 
 hc rename default "${tag_names[0]}" || true
@@ -148,7 +152,7 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc set_monitors 1920x1050+1920+30 1920x1050+0+30
 # or simply:
 # hc detect_monitors
-hc set_monitors 1920x1050+0+30
+hc set_monitors 1920x1050+1920+30
 
 find the panel
   panel=~/.config/herbstluftwm/panel.sh
