@@ -25,9 +25,8 @@ myBrowser_1=qutebrowser               		# Set browser_1
 myBrowser_2=brave               		# Set browser_2
 myPass=passmenu                     		# Set password manager
 myMail=thunderbird                     		# Set mail manager
-hc keybind $Mod-Shift-q quit	    		# Quit herbstluft session
 hc keybind $Mod-Shift-r reload			# Reload herbstluft session
-hc keybind $Mod-Shift-c close			# Close herbstluft window
+hc keybind $Mod-Shift-c close_and_remove	# Close herbstluft window
 hc keybind $Mod-Return spawn $myTerm  		# Open terminal 
 hc keybind $Mod-Mod1-q spawn $myBrowser_1	# Open browser_1
 hc keybind $Mod-Mod1-b spawn $myBrowser_2	# Open browser_2
@@ -39,12 +38,11 @@ hc keybind $Mod-Mod1-j spawn $myTerm -e joplin	# Open joplin
 hc keybind $Mod-Mod1-r spawn $myTerm -e newsboat # Open RSS reader 
 hc keybind $Mod-Mod1-m spawn $myTerm -e 'import -window root -crop 1920x1050+1920+30 screenshot.png' # Take screenshot and crop it to external screen
 
-hc keybind $Mod-Mod1-p spawn $myPass -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'SauceCodePro Nerd Font:size=8'		# Open password manager
-hc keybind $Mod-Shift-Return spawn dmenu_run -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'SauceCodePro Nerd Font:size=8'	# Open dmenu-Starter
+hc keybind $Mod-Mod1-p spawn $myPass -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'passwörter:' -fn 'SauceCodePro Nerd Font:size=8'		# Open password manager
+hc keybind $Mod-Shift-Return spawn dmenu_run -i -bw 2 -l 20 -g 6 -nb '#2f343f' -nf '#fff7bc' -sb '#83af9b' -nhf '#000000' -nhb '#ff5555' -shb '#0a81f5' -shf '#ffffff' -p 'menü_x:' -fn 'SauceCodePro Nerd Font:size=8'	# Open dmenu-Starter
 hc keybind $Mod-Mod1-f spawn ~/.config/herbstluftwm/schriftarten.sh	             # Open Font search & display
 hc keybind $Mod-Mod1-l spawn ~/.config/herbstluftwm/bookmarks.sh	             # Open bookmarks in qutebrowser
 hc keybind $Mod-Shift-q spawn ~/.config/herbstluftwm/logout.sh		             # Open logout options
-hc keybind $Mod-Mod1-e spawn ~/.config/herbstluftwm/file_browser.sh	             # Open dmenu file browser
 
 # Aufpassen, dass keine Konkurrenz zu einer xbindkeys-Konfig besteht
 hc keybind XF86AudioLowerVolume spawn amixer -q set Master 5%- # Alsa volume down
@@ -63,7 +61,7 @@ hc keybind $Mod-Shift-l		      shift right
 hc keybind $Mod-u                     split  bottom  0.5 
 hc keybind $Mod-o                     split  right   0.5
 hc keybind $Mod-Control-space         split explode
-resizestep=0.01
+resizestep=0.02
 hc keybind $Mod-Control-h             resize left +$resizestep
 hc keybind $Mod-Control-j             resize down +$resizestep
 hc keybind $Mod-Control-k             resize up +$resizestep

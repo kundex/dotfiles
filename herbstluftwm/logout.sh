@@ -6,71 +6,54 @@
 
 # An array of options to choose.
 declare -a options=(
-"Logout"
-"Lock screen"
-"Reboot"
-"Shutdown"
-"Suspend"
-"Quit"
+"Abmelden"
+"Sperren"
+"Neustart"
+"Beenden"
+"Zurück"
 )
 
 # Piping the above array into dmenu.
 # We use "printf '%s\n'" to format the array one item to a line.
-choice=$(printf '%s\n' "${options[@]}" | dmenu -i -p 'Shutdown menu:')
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -p 'Sitzungsmenü:' -fn 'SauceCodePro Nerd Font:size=8')
 
-# What to do when/if we choose one of the options.
 case $choice in
-    'Logout')
-        answer="$(echo -e "No\nYes" | dmenu -i -p "Logout?")"
+    'Abmelden')
+        answer="$(echo -e "Ja\nNein" | dmenu -i -p "Abmelden?" -fn 'SauceCodePro Nerd Font:size=8')"
 
-        if [[ $answer == "Yes" ]]; then
+        if [[ $answer == "Ja" ]]; then
 		herbstclient quit
         fi
-
-        if [[ $answer == "No" ]]; then
-            echo "User chose not to logout." && exit 1
+        if [[ $answer == "Nein" ]]; then
+            exit 1
         fi
         ;;
-    'Lock screen')
+    'Sperren')
         slock
         ;;
-    'Reboot')
-        answer="$(echo -e "No\nYes" | dmenu -i -p "Reboot?")"
+    'Neustart')
+        answer="$(echo -e "Ja\nNein" | dmenu -i -p "Neustart?" -fn 'SauceCodePro Nerd Font:size=8')"
 
-        if [[ $answer == "Yes" ]]; then
+        if [[ $answer == "Ja" ]]; then
             systemctl reboot
         fi
 
-        if [[ $answer == "No" ]]; then
-            echo "User chose not to reboot." && exit 1
+        if [[ $answer == "Nein" ]]; then
+            exit 1
         fi
         ;;
-    'Shutdown')
-        answer="$(echo -e "No\nYes" | dmenu -i -p "Shutdown?")"
+    'Beenden')
+        answer="$(echo -e "Ja\nNein" | dmenu -i -p "Beenden?" -fn 'SauceCodePro Nerd Font:size=8')"
 
-        if [[ $answer == "Yes" ]]; then
+        if [[ $answer == "Ja" ]]; then
             systemctl poweroff
         fi
 
-        if [[ $answer == "No" ]]; then
-            echo "User chose not to shutdown." && exit 1
+        if [[ $answer == "Nein" ]]; then
+            exit 1
         fi
         ;;
-    'Suspend')
-        answer="$(echo -e "No\nYes" | dmenu -i -p "Suspend?")"
-
-        if [[ $answer == "Yes" ]]; then
-            systemctl suspend
-        fi
-
-        if [[ $answer == "No" ]]; then
-            echo "User chose not to suspend." && exit 1
-        fi
-        ;;
-	'Quit')
-		echo "Program terminated." && exit 1
-	;;
-	*)
+    	*)
 		exit 1
 	;;
 esac
