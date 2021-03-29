@@ -33,16 +33,21 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/time]
-width            = 400
-height           = 40
-offset-x         = 1580
-offset-y         = 1030
+width            = 380
+height           = 23
+offset-x         = 1530
+offset-y         = 3
+radius		 = 10.0
 locale           = de_DE.UTF-8
-background       = #00FFFFFF
+background	 = ${colors.background}
 foreground       = ${colors.foreground}
-modules-left     = time
-padding          = 0
+padding          = 2 
+bottom	         = true
+module-margin	 = 1
+
 font-0 = SauceCodePro Nerd Font:style=Regular:size=12;1
+
+modules-left     = time
 
 ################################## Module #############################
 
@@ -50,7 +55,6 @@ font-0 = SauceCodePro Nerd Font:style=Regular:size=12;1
 type                     = custom/script
 interval                 = 1.0
 exec                     = date +'%A, %d. %B | %X Uhr' 
-format-padding           = 0
 format-foreground        = ${colors.foreground}
 
 [module/xwindow]
