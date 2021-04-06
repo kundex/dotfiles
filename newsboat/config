@@ -22,9 +22,9 @@ text-width 80
 # Keybinding
 unbind-key l
 bind-key k up
-bind-key l down
-bind-key j  quit
-bind-key ö open
+bind-key j down
+bind-key h quit
+bind-key l open
 bind-key m toggle-show-read-feeds
 unbind-key C
 unbind-key A feedlist
@@ -33,3 +33,4 @@ unbind-key A feedlist
 # notify-always yes
 # notify-format "newsbeuter: %n unread articles within %f unread feeds"
 # notify-program notify-send
+
