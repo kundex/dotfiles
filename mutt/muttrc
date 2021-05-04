@@ -41,21 +41,15 @@ bind index,pager g noop
 bind index \Cf noop
 
 # modified rebindings
-bind index l next-entry
-bind index k previous-entry
 bind attach <return> view-mailcap
 bind editor <space> noop
 bind index G last-entry
 bind index gg first-entry
 bind pager,attach j exit
-bind pager l next-line
-bind pager k previous-line
 bind index D delete-message
 bind index U undelete-message
 bind index L limit
-bind index j noop
 bind index,query <space> tag-entry
-macro browser j '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind index,pager H view-raw-message
 bind pager,browser gg top-page
 bind pager,browser G bottom-page

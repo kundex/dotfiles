@@ -33,4 +33,3 @@ unbind-key A feedlist
 # notify-always yes
 # notify-format "newsbeuter: %n unread articles within %f unread feeds"
 # notify-program notify-send
-
