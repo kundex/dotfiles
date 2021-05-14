@@ -77,3 +77,9 @@ let g:airline_theme='deus'
 "Escape search highlighting
 map <esc> :noh<cr>
 set clipboard=unnamedplus
+"Folding aktivieren
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+augroup end
